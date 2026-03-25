@@ -59,7 +59,7 @@ const Hero = () => {
                 View Projects <ArrowRight size={18} />
               </a>
               <a 
-                href="https://drive.google.com/file/d/1rydqf9q5WepWZGOOxHPPpIAQkJ18vxoE/view?usp=sharing" 
+                href="cv.pdf" 
                 target="_blank"
                 download="cv.pdf"
                 className="px-8 py-4 glass-card text-light-text dark:text-dark-text rounded-full font-medium flex items-center justify-center gap-2 hover:bg-light-bg dark:hover:bg-dark-bg transition-colors"
