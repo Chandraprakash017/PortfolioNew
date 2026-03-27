@@ -12,6 +12,21 @@ const About = () => {
     { icon: <Coffee size={24} />, title: 'Fast Learner', desc: 'Explorative Mindset' },
   ];
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const itemAnim = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+
   return (
     <SectionWrapper id="about" title="About Me" subtitle="Get to know me better">
       <div className="flex flex-col lg:flex-row gap-12 items-center">
@@ -37,17 +52,18 @@ const About = () => {
 
         {/* Info Grid */}
         <motion.div 
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          variants={container}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full"
         >
           {cards.map((card, index) => (
             <motion.div
               key={index}
+              variants={itemAnim}
               whileHover={{ y: -5, scale: 1.02 }}
-              className="glass p-6 rounded-2xl flex flex-col items-center text-center gap-4 hover:border-primary-500/50 transition-colors"
+              className="glass p-6 rounded-2xl flex flex-col items-center text-center gap-4 hover:border-primary-500/50 hover:shadow-xl hover:shadow-primary-500/10 transition-all cursor-default"
             >
               <div className="w-14 h-14 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400">
                 {card.icon}

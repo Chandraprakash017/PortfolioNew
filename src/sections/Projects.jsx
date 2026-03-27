@@ -9,9 +9,10 @@ const ProjectCard = ({ project, index }) => {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -10 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="glass rounded-3xl overflow-hidden group hover:shadow-2xl hover:shadow-primary-500/10 transition-all duration-300 flex flex-col h-full"
+      className="glass rounded-3xl overflow-hidden group hover:shadow-2xl hover:shadow-primary-500/20 transition-all duration-300 flex flex-col h-full bg-white/40 dark:bg-slate-900/40"
     >
       <div className="h-48 relative overflow-hidden bg-gradient-to-br from-primary-600/20 to-purple-600/20 flex items-center justify-center p-6">
         {/* Placeholder for project image since none was provided in resume */}

@@ -12,10 +12,20 @@ const Contact = () => {
 
   const onSubmit = async (data) => {
     try {
-      // Pointing to Node/Express backend that will be set up
-      const response = await axios.post('http://localhost:5000/api/contact', data);
-      setSubmitStatus('success');
-      reset();
+      // Add Web3Forms access key to the submitted data payload
+      const payload = {
+        ...data,
+        access_key: "44c7010f-5253-44ff-be6c-935bc4b11f07"
+      };
+      
+      const response = await axios.post('https://api.web3forms.com/submit', payload);
+      
+      if (response.data.success) {
+        setSubmitStatus('success');
+        reset();
+      } else {
+        setSubmitStatus('error');
+      }
       
       setTimeout(() => {
         setSubmitStatus(null);

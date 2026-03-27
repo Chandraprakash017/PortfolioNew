@@ -4,12 +4,30 @@ import { skills } from '../data';
 import SectionWrapper from '../components/SectionWrapper';
 
 const SkillCategory = ({ title, items, delay }) => {
+  const container = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        delay,
+        staggerChildren: 0.1,
+      }
+    }
+  };
+
+  const itemAnim = {
+    hidden: { opacity: 0, scale: 0.8 },
+    show: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 300, damping: 24 } }
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      variants={container}
+      initial="hidden"
+      whileInView="show"
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay }}
       className="glass p-8 rounded-3xl"
     >
       <h3 className="text-xl font-bold mb-6 text-light-text dark:text-dark-text ">{title}</h3>
@@ -17,8 +35,9 @@ const SkillCategory = ({ title, items, delay }) => {
         {items.map((skill, index) => (
           <motion.span
             key={index}
+            variants={itemAnim}
             whileHover={{ scale: 1.05, backgroundColor: 'rgba(59, 130, 246, 0.1)' }}
-            className="px-4 py-2 rounded-full border border-light-border dark:border-dark-border bg-white/50 dark:bg-slate-800/50 text-sm font-medium text-light-textMuted dark:text-dark-textMuted hover:text-primary-600 dark:hover:text-primary-400 hover:border-primary-500 transition-colors cursor-default"
+            className="px-4 py-2 rounded-full border border-light-border dark:border-dark-border bg-white/50 dark:bg-slate-800/50 text-sm font-medium text-light-textMuted dark:text-dark-textMuted hover:text-primary-600 dark:hover:text-primary-400 hover:border-primary-500 transition-colors cursor-default shadow-sm"
           >
             {skill}
           </motion.span>

@@ -70,9 +70,10 @@ const Experience = () => {
                   key={item.id}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ scale: 1.02, y: -5 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.1 }}
-                  className="glass p-5 rounded-2xl flex items-center gap-4 group hover:-translate-y-1 transition-transform"
+                  className="glass p-5 rounded-2xl flex items-center gap-4 group transition-shadow hover:shadow-xl hover:shadow-purple-500/10"
                 >
                   <div className="w-12 h-12 rounded-full bg-light-bg dark:bg-dark-bg flex items-center justify-center shrink-0 border border-light-border dark:border-dark-border group-hover:border-purple-500/50 transition-colors">
                     <Award className="text-purple-500" size={20} />
@@ -100,9 +101,10 @@ const Experience = () => {
                   key={idx}
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
+                  whileHover={{ scale: 1.03, y: -5 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.1 }}
-                  className="glass p-4 rounded-2xl flex flex-col justify-center border-t-2 border-t-primary-400/50 hover:border-t-primary-500 hover:-translate-y-1 transition-all cursor-pointer group"
+                  className="glass p-4 rounded-2xl flex flex-col justify-center border-t-2 border-t-primary-400/50 hover:border-t-primary-500 hover:shadow-xl hover:shadow-primary-500/10 transition-all cursor-pointer group"
                 >
                   <a href={cert.link} target="_blank" rel="noreferrer" className="flex flex-col h-full w-full">
                     <div className="flex justify-between items-start mb-2">

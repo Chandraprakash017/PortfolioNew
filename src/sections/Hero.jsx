@@ -83,7 +83,11 @@ const Hero = () => {
             />
             
             {/* Minimalist Tech Stack Orb Graphic */}
-            <div className="relative w-80 h-80 mx-auto">
+            <motion.div 
+              animate={{ y: [-15, 15, -15] }}
+              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+              className="relative w-80 h-80 mx-auto mt-4"
+            >
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-full blur-2xl opacity-40 animate-pulse"></div>
               <div className="absolute inset-4 glass rounded-[2rem] flex flex-col items-center justify-center border-t border-l border-white/40 shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
                 <h3 className="text-3xl font-bold text-gradient mb-2">MERN</h3>
@@ -96,7 +100,7 @@ const Hero = () => {
                   <div className="w-3 h-3 rounded-full bg-green-400"></div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
         </div>
